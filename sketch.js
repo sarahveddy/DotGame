@@ -15,12 +15,12 @@ var lastTime;
 
 //setup of p5 objects and events
 function setup() {
-  canvasHeight = windowHeight - 50;
-  canvasWidth = windowWidth;
-  circleSize = 30;
+  canvasHeight = windowHeight - 150;
+  canvasWidth = windowWidth - 100;
+  circleSize = 40;
   score = 0;
   lastTime = 0;
-  timeBetweenCircles = 500;
+  timeBetweenCircles = 300;
   timer = 0; 
   noStroke();
   canvas = createCanvas(canvasWidth, canvasHeight);
@@ -30,8 +30,11 @@ function setup() {
   scoreElement= createElement("p", "Score = 0");
 }
 
-function makeCanvas(){
-
+//resizes the canvas when the window resizes
+function windowResized(){
+  canvasHeight = windowHeight - 150;
+  canvasWidth = windowWidth - 100; 
+  resizeCanvas(canvasWidth, canvasHeight);
 }
 
 
@@ -93,7 +96,7 @@ function animateCircle(circle){
 function checkForCircles(){
   for(var i = 0; i<circles.length; i++){
     var workingCircle = circles[i];
-    if(circleHit(workingCircle) && warmColor(workingCircle)){
+    if(circleHit(workingCircle)){
       removeCircle(i, workingCircle);
       addPoints(workingCircle);
 
@@ -157,10 +160,7 @@ function randomY(){
 //generates a random hue for an HSL color value
 function randomHue(){
   var h;
-  do {
-      h = random(360);
-  }
-  while(h > 85 && h < 150);
+  h = random(360);
   return Math.trunc(h);
 }
 

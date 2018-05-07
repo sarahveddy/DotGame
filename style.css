@@ -1,0 +1,28 @@
+html, body {
+  height: 100%;
+}
+body {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+#canvas {
+  margin: 0;
+  display: flex;
+
+  /* This centers our sketch horizontally. */
+  justify-content: center;
+
+  /* This centers our sketch vertically. */
+  align-items: center;
+}
+p {
+	display: flex; 
+	justify-content: center;
+	align-items: center;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 1.5em; 
+
+}
